@@ -1,0 +1,49 @@
+﻿=== Section 3: data quality ===
+Rows: 9568
+Columns: AT [degC], V [cm Hg], AP [mbar], RH [%], PE [MW]
+Missing values (total): 0
+Missing values per column: AT=0, V=0, AP=0, RH=0, PE=0
+Exact duplicate rows (repeats of an earlier row): 41
+Min / max per column:
+  AT: 1.81 - 37.11 degC
+  V: 25.36 - 81.56 cm Hg
+  AP: 992.89 - 1033.30 mbar
+  RH: 25.56 - 100.16 %
+  PE: 420.26 - 495.76 MW
+Training rows: 7654, test rows: 1914 (all rows kept)
+Duplicates inside training set: 24, inside test set: 1, test rows that also appear in training set: 16
+
+=== Section 4: summary statistics (full dataset) ===
+AT: mean 19.65, median 20.34, std 7.45 degC
+PE: mean 454.37, median 451.55, std 17.07 MW
+Correlation r with PE:
+  AT: -0.948
+  V: -0.870
+  AP: 0.518
+  RH: 0.390
+Strongest linear relationship: AT (r = -0.948)
+
+=== Section 5: models (fit on training set, evaluate on test set) ===
+5.1 Training mean of PE: 454.44 MW
+5.1 Baseline test MAE: 14.72 MW
+Check - line from AT: PE = -2.1750*AT + 497.13, test MAE 4.33 MW
+5.2 Feature: V [cm Hg]
+5.2 Slope a: -1.1677 MW per cm Hg
+5.2 Intercept b: 517.78 MW
+5.2 Test MAE: 6.49 MW
+5.3 Comparison table (test MAE, MW):
+  Baseline (training mean): 14.72
+  Line from AT:             4.33
+  Line from V:              6.49
+5.5 Row number in file (header is line 1): 7656
+5.5 V = 35.77 cm Hg
+5.5 Predicted PE = -1.1677*35.77 + 517.78 = 476.01 MW
+5.5 True PE: 483.12 MW
+5.5 Absolute error: 7.11 MW
+
+=== Extra (3.3): duplicates removed within each set ===
+Training rows: 7630, test rows: 1913
+Baseline test MAE: 14.72 MW
+Line from V test MAE: 6.49 MW
+
+Python 3.14.7, NumPy 2.5.3, pandas 3.1.1
