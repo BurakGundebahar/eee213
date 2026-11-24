@@ -1,8 +1,83 @@
-﻿<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Numerical problem</title><style>body{font-family:system-ui,sans-serif;max-width:760px;margin:40px auto;padding:0 16px;line-height:1.6}a{color:#0b5fff}</style></head><body>
-<p><a href="index.html">&larr; Home</a></p>
-<h1>Numerical problem</h1>
-<p>Placeholder &mdash; content coming soon.</p>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Numerical problem — EEE213 Project</title>
+<meta name="description" content="EEE213 Scientific Programming project site of Burak Gündebahar.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="mark">213</span>EEE213 Project</a>
+    <nav aria-label="Main"><ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="numerical-problem.html" aria-current="page">Numerical problem</a></li>
+<li><a href="data-and-model.html">Data and model</a></li>
+<li><a href="presentation.html">Presentation</a></li>
+<li><a href="code.html">Code</a></li>
+    </ul></nav>
+  </div>
+</header>
+<section class="hero">
+  <div class="wrap">
 
-</body></html>
+    <p class="eyebrow">Problem 7 · Weeks 6–7 methods</p>
+    <h1>Non-linear resistor network</h1>
+    <p class="lead">Two node voltages of a DC circuit with cubic non-linear resistors, found with multivariable Newton–Raphson. <span class="badge">Solved in Week 11</span></p>
+
+  </div>
+</section>
+<main>
+  <div class="wrap">
+
+    <h2>Model and assumptions</h2>
+    <p>A DC source V<sub>s</sub> feeds node 1 through resistor R<sub>1</sub>. Resistor R<sub>2</sub> joins node 1 and node 2. Each node is connected to ground through a non-linear (varistor-like) resistor with current I = K·V³.</p>
+    <ul class="clean">
+      <li>Steady DC state; ideal source and wires.</li>
+      <li>Linear resistors obey Ohm's law.</li>
+      <li>The non-linear characteristic is exactly cubic and does not depend on temperature.</li>
+      <li>Node voltages are positive.</li>
+    </ul>
+
+    <h2>Unknowns and parameters</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Symbol</th><th>Meaning</th><th class="num">Value</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>V<sub>1</sub>, V<sub>2</sub></td><td>Node voltages (unknowns)</td><td class="num">—</td><td>—</td></tr>
+        <tr><td>V<sub>s</sub></td><td>Source voltage</td><td class="num">10 V</td><td>Stated assumption</td></tr>
+        <tr><td>R<sub>1</sub></td><td>Series resistor</td><td class="num">1 kΩ</td><td>Stated assumption</td></tr>
+        <tr><td>R<sub>2</sub></td><td>Coupling resistor</td><td class="num">2 kΩ</td><td>Stated assumption</td></tr>
+        <tr><td>K<sub>1</sub></td><td>Non-linear coefficient, node 1</td><td class="num">0.5 mA/V³</td><td>Stated assumption</td></tr>
+        <tr><td>K<sub>2</sub></td><td>Non-linear coefficient, node 2</td><td class="num">0.2 mA/V³</td><td>Stated assumption</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2>Governing equations</h2>
+    <p>Kirchhoff's current law at each node (every term in A):</p>
+<pre><code>f1 = (V1 − Vs)/R1 + K1·V1^3 + (V1 − V2)/R2 = 0
+f2 = (V2 − V1)/R2 + K2·V2^3              = 0</code></pre>
+    <p>Jacobian, derived by hand (A/V):</p>
+<pre><code>J = | 1/R1 + 1/R2 + 3·K1·V1^2      −1/R2               |
+    | −1/R2                         1/R2 + 3·K2·V2^2   |
+
+Newton step:  J·ΔV = −f,   V_new = V + ΔV</code></pre>
+
+    <h2>Method</h2>
+    <p>Multivariable Newton with the 2×2 Jacobian above. The two KCL equations are coupled and non-linear, so they must be solved together; Newton converges quadratically near the root. Start: V<sub>1</sub> = V<sub>2</sub> = 1 V. Stop: |ΔV| &lt; 10⁻⁹ V.</p>
+
+    <h2>Planned independent check</h2>
+    <p>From f2, V<sub>1</sub> = V<sub>2</sub> + R<sub>2</sub>·K<sub>2</sub>·V<sub>2</sub>³. Substituting into f1 gives one equation in V<sub>2</sub>, solved by bisection on 0–10 V. Both methods must agree, the KCL residuals must be near zero, and the source power must equal the total dissipated power.</p>
+    <p class="note">Iteration table, results and the check will be added in Week 11.</p>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Burak Gündebahar · EEE213 Scientific Programming · 2026–27 Fall</span>
+    <a href="https://github.com/BurakGundebahar/eee213">Source on GitHub</a>
+  </div>
+</footer>
+</body>
+</html>

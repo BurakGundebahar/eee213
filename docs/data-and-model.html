@@ -1,8 +1,79 @@
-﻿<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Data and model</title><style>body{font-family:system-ui,sans-serif;max-width:760px;margin:40px auto;padding:0 16px;line-height:1.6}a{color:#0b5fff}</style></head><body>
-<p><a href="index.html">&larr; Home</a></p>
-<h1>Data and model</h1>
-<p>Placeholder &mdash; content coming soon.</p>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data and model — EEE213 Project</title>
+<meta name="description" content="EEE213 Scientific Programming project site of Burak Gündebahar.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="mark">213</span>EEE213 Project</a>
+    <nav aria-label="Main"><ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="numerical-problem.html">Numerical problem</a></li>
+<li><a href="data-and-model.html" aria-current="page">Data and model</a></li>
+<li><a href="presentation.html">Presentation</a></li>
+<li><a href="code.html">Code</a></li>
+    </ul></nav>
+  </div>
+</header>
+<section class="hero">
+  <div class="wrap">
 
-</body></html>
+    <p class="eyebrow">Week 09 lab · real data</p>
+    <h1>Data and model</h1>
+    <p class="lead">Predicting the net electrical output of a combined-cycle power plant from ambient conditions.</p>
+
+  </div>
+</section>
+<main>
+  <div class="wrap">
+
+    <h2>Dataset</h2>
+    <p>Combined Cycle Power Plant, P. Tüfekci and H. Kaya, UCI Machine Learning Repository, 2014, doi:10.24432/C5002N, licence CC BY 4.0. 9,568 hourly rows recorded at full load.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Column</th><th>Quantity</th><th>Unit</th><th class="num">Min</th><th class="num">Max</th></tr></thead>
+      <tbody>
+        <tr><td>AT</td><td>Ambient temperature</td><td>°C</td><td class="num">1.81</td><td class="num">37.11</td></tr>
+        <tr><td>V</td><td>Exhaust vacuum</td><td>cm Hg</td><td class="num">25.36</td><td class="num">81.56</td></tr>
+        <tr><td>AP</td><td>Ambient pressure</td><td>mbar</td><td class="num">992.89</td><td class="num">1033.30</td></tr>
+        <tr><td>RH</td><td>Relative humidity</td><td>%</td><td class="num">25.56</td><td class="num">100.16</td></tr>
+        <tr><td>PE</td><td>Net electrical output (target)</td><td>MW</td><td class="num">420.26</td><td class="num">495.76</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2>Checks</h2>
+    <ul class="clean">
+      <li>Missing values: 0.</li>
+      <li>Exact duplicate rows: 41 (kept; 0.4 % of rows, plausible repeated readings).</li>
+      <li>All ranges are physically possible; RH = 100.16 % is a small sensor overshoot.</li>
+    </ul>
+
+    <h2>Split</h2>
+    <p>Training set: first 7,654 rows. Test set: last 1,914 rows, used once for the final error.</p>
+
+    <h2>Results (test MAE)</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Model</th><th class="num">Test MAE (MW)</th></tr></thead>
+      <tbody>
+        <tr><td>Baseline: always the training mean (454.44 MW)</td><td class="num">14.72</td></tr>
+        <tr class="best"><td>Straight line from AT: PE = −2.1750·AT + 497.13</td><td class="num">4.33</td></tr>
+        <tr><td>Straight line from V: PE = −1.1677·V + 517.78</td><td class="num">6.49</td></tr>
+        <tr><td>Decision tree (Week 10)</td><td class="num">—</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">AT has the strongest linear relationship with PE (r = −0.948), so its line leaves the least error. The decision-tree result will be added for Week 10.</p>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Burak Gündebahar · EEE213 Scientific Programming · 2026–27 Fall</span>
+    <a href="https://github.com/BurakGundebahar/eee213">Source on GitHub</a>
+  </div>
+</footer>
+</body>
+</html>

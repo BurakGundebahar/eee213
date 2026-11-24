@@ -1,8 +1,71 @@
-﻿<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Code</title><style>body{font-family:system-ui,sans-serif;max-width:760px;margin:40px auto;padding:0 16px;line-height:1.6}a{color:#0b5fff}</style></head><body>
-<p><a href="index.html">&larr; Home</a></p>
-<h1>Code</h1>
-<p>Placeholder &mdash; content coming soon.</p>
-<p>Week 09 lab script: <a href="https://github.com/BurakGundebahar/eee213/blob/main/lab/w09.py">lab/w09.py</a></p>
-</body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code — EEE213 Project</title>
+<meta name="description" content="EEE213 Scientific Programming project site of Burak Gündebahar.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="mark">213</span>EEE213 Project</a>
+    <nav aria-label="Main"><ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="numerical-problem.html">Numerical problem</a></li>
+<li><a href="data-and-model.html">Data and model</a></li>
+<li><a href="presentation.html">Presentation</a></li>
+<li><a href="code.html" aria-current="page">Code</a></li>
+    </ul></nav>
+  </div>
+</header>
+<section class="hero">
+  <div class="wrap">
+
+    <p class="eyebrow">Repository · reproducibility</p>
+    <h1>Code</h1>
+    <p class="lead">Every number on this site is printed by the scripts in the repository.</p>
+
+  </div>
+</section>
+<main>
+  <div class="wrap">
+
+    <h2>Repository</h2>
+    <p><a href="https://github.com/BurakGundebahar/eee213">github.com/BurakGundebahar/eee213</a></p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Path</th><th>Contents</th></tr></thead>
+      <tbody>
+        <tr><td><code>lab/w09.py</code></td><td>Week 09 lab: data checks, statistics, baseline and straight-line models (<a href="https://github.com/BurakGundebahar/eee213/blob/8a435e8390c5a2216095b3c888a9dd72276258c5/lab/w09.py">permalink</a>)</td></tr>
+        <tr><td><code>lab/w09_output.txt</code></td><td>Complete console output of the Week 09 script</td></tr>
+        <tr><td><code>data/ccpp.csv</code></td><td>Power-plant dataset (UCI, CC BY 4.0)</td></tr>
+        <tr><td><code>docs/</code></td><td>This website (GitHub Pages)</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2>How to run</h2>
+    <p>From the repository folder:</p>
+<pre><code>python lab/w09.py</code></pre>
+    <p>Tested with Python 3.14.7, NumPy 2.5.3 and pandas 3.1.1.</p>
+
+    <h2>Sources</h2>
+    <ol class="refs">
+      <li>P. Tüfekci and H. Kaya, “Combined Cycle Power Plant,” UCI Machine Learning Repository, 2014, doi:10.24432/C5002N. CC BY 4.0.</li>
+      <li>P. Tüfekci, “Prediction of full load electrical power output of a base load operated combined cycle power plant using machine learning methods,” <em>Int. J. Electr. Power Energy Syst.</em>, vol. 60, pp. 126–140, 2014.</li>
+      <li>T. M. Mitchell, <em>Machine Learning</em>. New York, NY, USA: McGraw-Hill, 1997.</li>
+    </ol>
+
+    <h2>AI-use statement</h2>
+    <p>Claude (Anthropic) was used, as allowed by the instructor. It explained the assignment, wrote <code>lab/w09.py</code>, drafted answers, and set up this repository and website. I checked the script output against the lecture values (baseline 14.72 MW, AT line 4.33 MW) and reviewed the work before submitting.</p>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Burak Gündebahar · EEE213 Scientific Programming · 2026–27 Fall</span>
+    <a href="https://github.com/BurakGundebahar/eee213">Source on GitHub</a>
+  </div>
+</footer>
+</body>
+</html>

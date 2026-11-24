@@ -1,8 +1,63 @@
-﻿<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Presentation</title><style>body{font-family:system-ui,sans-serif;max-width:760px;margin:40px auto;padding:0 16px;line-height:1.6}a{color:#0b5fff}</style></head><body>
-<p><a href="index.html">&larr; Home</a></p>
-<h1>Presentation</h1>
-<p>Placeholder &mdash; content coming soon.</p>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presentation — EEE213 Project</title>
+<meta name="description" content="EEE213 Scientific Programming project site of Burak Gündebahar.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="mark">213</span>EEE213 Project</a>
+    <nav aria-label="Main"><ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="numerical-problem.html">Numerical problem</a></li>
+<li><a href="data-and-model.html">Data and model</a></li>
+<li><a href="presentation.html" aria-current="page">Presentation</a></li>
+<li><a href="code.html">Code</a></li>
+    </ul></nav>
+  </div>
+</header>
+<section class="hero">
+  <div class="wrap">
 
-</body></html>
+    <p class="eyebrow">Week 10 · method 7</p>
+    <h1>Decision tree</h1>
+    <p class="lead">A regression tree that predicts power output with a sequence of yes/no questions about the ambient conditions. <span class="badge">Slides in progress</span></p>
+
+  </div>
+</section>
+<main>
+  <div class="wrap">
+
+    <h2>Plan (4 min + 1 min questions)</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Part</th><th>Content</th><th class="num">Time</th></tr></thead>
+      <tbody>
+        <tr><td>Definition</td><td>Regression tree; predicts PE (MW) from AT, V, AP, RH</td><td class="num">0.5 min</td></tr>
+        <tr><td>How it learns</td><td>Splits that minimise the mean squared error; leaves predict the mean</td><td class="num">1.5 min</td></tr>
+        <tr><td>Hyperparameters</td><td><code>max_depth</code>, <code>min_samples_leaf</code></td><td class="num">0.5 min</td></tr>
+        <tr><td>Result on our data</td><td>Test MAE compared with the 14.72 MW baseline</td><td class="num">1 min</td></tr>
+        <tr><td>Strength and limit</td><td>One of each, with a reason</td><td class="num">0.5 min</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2>Sources</h2>
+    <ol class="refs">
+      <li>L. Breiman, J. H. Friedman, R. A. Olshen, and C. J. Stone, <em>Classification and Regression Trees</em>. Belmont, CA, USA: Wadsworth, 1984.</li>
+      <li>scikit-learn developers, “Decision Trees,” scikit-learn documentation. [Online]. Available: <a href="https://scikit-learn.org/stable/modules/tree.html">scikit-learn.org/stable/modules/tree.html</a></li>
+    </ol>
+    <p class="note">The slides will be linked here before the Week 10 practice session.</p>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Burak Gündebahar · EEE213 Scientific Programming · 2026–27 Fall</span>
+    <a href="https://github.com/BurakGundebahar/eee213">Source on GitHub</a>
+  </div>
+</footer>
+</body>
+</html>
