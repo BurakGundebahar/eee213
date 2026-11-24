@@ -70,7 +70,7 @@ img, svg { max-width: 100%; }
 .hero .meta span::before { content: "■ "; color: var(--white); }
 .mega {
   font-size: clamp(52px, 13vw, 176px);
-  line-height: .86;
+  line-height: .98;
   letter-spacing: -.055em;
   font-weight: 700;
   margin: 0;
@@ -179,7 +179,7 @@ ol.refs li::before { content: "[" counter(ref) "]"; font-family: var(--mono); co
 
 /* ---------- Footer ---------- */
 .foot { display: grid; grid-template-columns: 1fr auto; gap: 24px; padding: 40px var(--pad) 28px; align-items: end; }
-.foot .big { font-size: clamp(40px, 9vw, 120px); font-weight: 700; letter-spacing: -.06em; line-height: .85; text-transform: uppercase; color: transparent; -webkit-text-stroke: 1px var(--g3); }
+.foot .big { font-size: clamp(40px, 9vw, 120px); font-weight: 700; letter-spacing: -.06em; line-height: .98; text-transform: uppercase; color: transparent; -webkit-text-stroke: 1px var(--g3); }
 .foot .small { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--g4); text-align: right; line-height: 1.9; }
 .foot a { color: var(--white); }
 
