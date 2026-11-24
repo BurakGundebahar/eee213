@@ -3,61 +3,63 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Presentation — EEE213 Project</title>
-<meta name="description" content="EEE213 Scientific Programming project site of Burak Gündebahar.">
+<title>Presentation · BG-213 · EEE213</title>
+<meta name="description" content="EEE213 Scientific Programming project datasheet of Burak Gündebahar.">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="index.html"><span class="mark">213</span>EEE213 Project</a>
-    <nav aria-label="Main"><ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="numerical-problem.html">Numerical problem</a></li>
-<li><a href="data-and-model.html">Data and model</a></li>
-<li><a href="presentation.html" aria-current="page">Presentation</a></li>
-<li><a href="code.html">Code</a></li>
-    </ul></nav>
-  </div>
+<header class="titleblock">
+  <a class="tb-id" href="index.html"><span class="dot"></span>BG-213 / Project datasheet</a>
+  <nav class="tb-nav" aria-label="Main">
+<a href="index.html"><b>00</b>Index</a>
+<a href="numerical-problem.html"><b>01</b>Numerical</a>
+<a href="data-and-model.html"><b>02</b>Data + model</a>
+<a href="presentation.html" aria-current="page"><b>03</b>Presentation</a>
+<a href="code.html"><b>04</b>Code</a>
+  </nav>
+  <div class="tb-rev">Rev. W09 · 2026–27 Fall</div>
 </header>
 <section class="hero">
-  <div class="wrap">
-
-    <p class="eyebrow">Week 10 · method 7</p>
-    <h1>Decision tree</h1>
-    <p class="lead">A regression tree that predicts power output with a sequence of yes/no questions about the ambient conditions. <span class="badge">Slides in progress</span></p>
-
-  </div>
+  <div class="meta"><span>Sheet 03</span><span>Week 10</span><span>Method 7</span></div>
+  <h1 class="page">Decision<br>tree</h1>
+  <p class="lead">A regression tree predicts power output by asking a chain of yes/no questions about the weather — “Is AT ≤ 18 °C?” — and returning the mean output of the matching training hours.</p>
+  <span class="chip">Slides in progress</span>
+  <div class="sec" aria-hidden="true">03</div>
 </section>
+<div class="marquee" aria-hidden="true"><div class="track"><span>Scientific programming</span><span>◆</span><span>Machine learning</span><span>◆</span><span>Decision tree</span><span>◆</span><span>Newton–Raphson</span><span>◆</span><span>Jacobian</span><span>◆</span><span>Power-plant data</span><span>◆</span><span>MAE in MW</span><span>◆</span><span>EEE213</span><span>◆</span><span>Scientific programming</span><span>◆</span><span>Machine learning</span><span>◆</span><span>Decision tree</span><span>◆</span><span>Newton–Raphson</span><span>◆</span><span>Jacobian</span><span>◆</span><span>Power-plant data</span><span>◆</span><span>MAE in MW</span><span>◆</span><span>EEE213</span><span>◆</span></div></div>
 <main>
-  <div class="wrap">
+<section class="section inverse">
+  <div class="section-head"><span class="label">§ 3.1 Run sheet</span><h2>4 min + 1 min</h2></div>
+  <div class="body">
 
-    <h2>Plan (4 min + 1 min questions)</h2>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Part</th><th>Content</th><th class="num">Time</th></tr></thead>
+    <div class="spec-wrap"><table class="spec">
+      <thead><tr><th>Part</th><th>Content</th><th class="r">Time</th></tr></thead>
       <tbody>
-        <tr><td>Definition</td><td>Regression tree; predicts PE (MW) from AT, V, AP, RH</td><td class="num">0.5 min</td></tr>
-        <tr><td>How it learns</td><td>Splits that minimise the mean squared error; leaves predict the mean</td><td class="num">1.5 min</td></tr>
-        <tr><td>Hyperparameters</td><td><code>max_depth</code>, <code>min_samples_leaf</code></td><td class="num">0.5 min</td></tr>
-        <tr><td>Result on our data</td><td>Test MAE compared with the 14.72 MW baseline</td><td class="num">1 min</td></tr>
-        <tr><td>Strength and limit</td><td>One of each, with a reason</td><td class="num">0.5 min</td></tr>
+        <tr><td>Definition</td><td>Regression tree; predicts PE (MW) from AT, V, AP, RH</td><td class="r">0:30</td></tr>
+        <tr><td>How it learns</td><td>Greedy splits that minimise mean squared error; leaves predict the mean</td><td class="r">1:30</td></tr>
+        <tr><td>Hyperparameters</td><td><code>max_depth</code> · <code>min_samples_leaf</code></td><td class="r">0:30</td></tr>
+        <tr><td>Result</td><td>Test MAE vs. the 14.72 MW baseline</td><td class="r">1:00</td></tr>
+        <tr><td>Strength + limit</td><td>One of each, with a reason</td><td class="r">0:30</td></tr>
       </tbody>
     </table></div>
+  </div>
+</section>
+<section class="section">
+  <div class="section-head"><span class="label">§ 3.2 Sources</span><h2>References</h2></div>
+  <div class="body">
 
-    <h2>Sources</h2>
     <ol class="refs">
-      <li>L. Breiman, J. H. Friedman, R. A. Olshen, and C. J. Stone, <em>Classification and Regression Trees</em>. Belmont, CA, USA: Wadsworth, 1984.</li>
-      <li>scikit-learn developers, “Decision Trees,” scikit-learn documentation. [Online]. Available: <a href="https://scikit-learn.org/stable/modules/tree.html">scikit-learn.org/stable/modules/tree.html</a></li>
+      <li><span>L. Breiman, J. H. Friedman, R. A. Olshen, and C. J. Stone, <em>Classification and Regression Trees</em>. Belmont, CA, USA: Wadsworth, 1984.</span></li>
+      <li><span>scikit-learn developers, “Decision Trees,” scikit-learn documentation. [Online]. Available: <a href="https://scikit-learn.org/stable/modules/tree.html">scikit-learn.org/stable/modules/tree.html</a></span></li>
     </ol>
-    <p class="note">The slides will be linked here before the Week 10 practice session.</p>
-
   </div>
+</section>
 </main>
-<footer class="site-footer">
-  <div class="wrap">
-    <span>Burak Gündebahar · EEE213 Scientific Programming · 2026–27 Fall</span>
-    <a href="https://github.com/BurakGundebahar/eee213">Source on GitHub</a>
-  </div>
+<footer class="foot">
+  <div class="big">Burak<br>Gündebahar</div>
+  <div class="small">EEE213 · Scientific Programming<br>İzmir Kâtip Çelebi University<br><a href="https://github.com/BurakGundebahar/eee213">Source on GitHub ↗</a></div>
 </footer>
 </body>
 </html>

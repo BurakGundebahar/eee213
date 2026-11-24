@@ -3,69 +3,81 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Code — EEE213 Project</title>
-<meta name="description" content="EEE213 Scientific Programming project site of Burak Gündebahar.">
+<title>Code · BG-213 · EEE213</title>
+<meta name="description" content="EEE213 Scientific Programming project datasheet of Burak Gündebahar.">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="index.html"><span class="mark">213</span>EEE213 Project</a>
-    <nav aria-label="Main"><ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="numerical-problem.html">Numerical problem</a></li>
-<li><a href="data-and-model.html">Data and model</a></li>
-<li><a href="presentation.html">Presentation</a></li>
-<li><a href="code.html" aria-current="page">Code</a></li>
-    </ul></nav>
-  </div>
+<header class="titleblock">
+  <a class="tb-id" href="index.html"><span class="dot"></span>BG-213 / Project datasheet</a>
+  <nav class="tb-nav" aria-label="Main">
+<a href="index.html"><b>00</b>Index</a>
+<a href="numerical-problem.html"><b>01</b>Numerical</a>
+<a href="data-and-model.html"><b>02</b>Data + model</a>
+<a href="presentation.html"><b>03</b>Presentation</a>
+<a href="code.html" aria-current="page"><b>04</b>Code</a>
+  </nav>
+  <div class="tb-rev">Rev. W09 · 2026–27 Fall</div>
 </header>
 <section class="hero">
-  <div class="wrap">
+  <div class="meta"><span>Sheet 04</span><span>Reproducibility</span></div>
+  <h1 class="page">Code +<br>statement</h1>
+  <p class="lead">Every number on this site is printed by a script in the repository. Clone it, run one command, get the same numbers.</p>
+  <div class="sec" aria-hidden="true">04</div>
+</section>
+<div class="marquee" aria-hidden="true"><div class="track"><span>Scientific programming</span><span>◆</span><span>Machine learning</span><span>◆</span><span>Decision tree</span><span>◆</span><span>Newton–Raphson</span><span>◆</span><span>Jacobian</span><span>◆</span><span>Power-plant data</span><span>◆</span><span>MAE in MW</span><span>◆</span><span>EEE213</span><span>◆</span><span>Scientific programming</span><span>◆</span><span>Machine learning</span><span>◆</span><span>Decision tree</span><span>◆</span><span>Newton–Raphson</span><span>◆</span><span>Jacobian</span><span>◆</span><span>Power-plant data</span><span>◆</span><span>MAE in MW</span><span>◆</span><span>EEE213</span><span>◆</span></div></div>
+<main>
+<section class="section">
+  <div class="section-head"><span class="label">§ 4.1 Run</span><h2>One command</h2></div>
+  <div class="body">
 
-    <p class="eyebrow">Repository · reproducibility</p>
-    <h1>Code</h1>
-    <p class="lead">Every number on this site is printed by the scripts in the repository.</p>
-
+<pre><code>$ git clone https://github.com/BurakGundebahar/eee213.git
+$ cd eee213
+$ python lab/w09.py</code></pre>
+    <p class="muted">Tested with Python 3.14.7, NumPy 2.5.3, pandas 3.1.1.</p>
   </div>
 </section>
-<main>
-  <div class="wrap">
+<section class="section inverse">
+  <div class="section-head"><span class="label">§ 4.2 Repository</span><h2>File map</h2></div>
+  <div class="body">
 
-    <h2>Repository</h2>
-    <p><a href="https://github.com/BurakGundebahar/eee213">github.com/BurakGundebahar/eee213</a></p>
-    <div class="table-wrap"><table>
+    <div class="spec-wrap"><table class="spec">
       <thead><tr><th>Path</th><th>Contents</th></tr></thead>
       <tbody>
-        <tr><td><code>lab/w09.py</code></td><td>Week 09 lab: data checks, statistics, baseline and straight-line models (<a href="https://github.com/BurakGundebahar/eee213/blob/8a435e8390c5a2216095b3c888a9dd72276258c5/lab/w09.py">permalink</a>)</td></tr>
-        <tr><td><code>lab/w09_output.txt</code></td><td>Complete console output of the Week 09 script</td></tr>
+        <tr><td><code>lab/w09.py</code></td><td>Week 09 lab — checks, statistics, baseline, straight lines · <a href="https://github.com/BurakGundebahar/eee213/blob/8a435e8390c5a2216095b3c888a9dd72276258c5/lab/w09.py">permalink</a></td></tr>
+        <tr><td><code>lab/w09_output.txt</code></td><td>Complete console output</td></tr>
         <tr><td><code>data/ccpp.csv</code></td><td>Power-plant dataset (UCI, CC BY 4.0)</td></tr>
         <tr><td><code>docs/</code></td><td>This website (GitHub Pages)</td></tr>
       </tbody>
     </table></div>
+    <p style="margin-top:16px"><a href="https://github.com/BurakGundebahar/eee213">github.com/BurakGundebahar/eee213 ↗</a></p>
+  </div>
+</section>
+<section class="section">
+  <div class="section-head"><span class="label">§ 4.3 Sources</span><h2>References</h2></div>
+  <div class="body">
 
-    <h2>How to run</h2>
-    <p>From the repository folder:</p>
-<pre><code>python lab/w09.py</code></pre>
-    <p>Tested with Python 3.14.7, NumPy 2.5.3 and pandas 3.1.1.</p>
-
-    <h2>Sources</h2>
     <ol class="refs">
-      <li>P. Tüfekci and H. Kaya, “Combined Cycle Power Plant,” UCI Machine Learning Repository, 2014, doi:10.24432/C5002N. CC BY 4.0.</li>
-      <li>P. Tüfekci, “Prediction of full load electrical power output of a base load operated combined cycle power plant using machine learning methods,” <em>Int. J. Electr. Power Energy Syst.</em>, vol. 60, pp. 126–140, 2014.</li>
-      <li>T. M. Mitchell, <em>Machine Learning</em>. New York, NY, USA: McGraw-Hill, 1997.</li>
+      <li><span>P. Tüfekci and H. Kaya, “Combined Cycle Power Plant,” UCI Machine Learning Repository, 2014, doi:10.24432/C5002N. CC BY 4.0.</span></li>
+      <li><span>P. Tüfekci, “Prediction of full load electrical power output of a base load operated combined cycle power plant using machine learning methods,” <em>Int. J. Electr. Power Energy Syst.</em>, vol. 60, pp. 126–140, 2014.</span></li>
+      <li><span>T. M. Mitchell, <em>Machine Learning</em>. New York, NY, USA: McGraw-Hill, 1997.</span></li>
     </ol>
-
-    <h2>AI-use statement</h2>
-    <p>Claude (Anthropic) was used, as allowed by the instructor. It explained the assignment, wrote <code>lab/w09.py</code>, drafted answers, and set up this repository and website. I checked the script output against the lecture values (baseline 14.72 MW, AT line 4.33 MW) and reviewed the work before submitting.</p>
-
   </div>
+</section>
+<section class="section inverse">
+  <div class="section-head"><span class="label">§ 4.4 Statement</span><h2>AI use</h2></div>
+  <div class="body">
+
+    <p>Claude (Anthropic) was used, as allowed by the instructor. It explained the assignment, wrote <code>lab/w09.py</code>, drafted answers, and set up this repository and website.</p>
+    <p>I checked the script output against the lecture values — baseline 14.72 MW, AT line 4.33 MW — and reviewed the work before submitting.</p>
+  </div>
+</section>
 </main>
-<footer class="site-footer">
-  <div class="wrap">
-    <span>Burak Gündebahar · EEE213 Scientific Programming · 2026–27 Fall</span>
-    <a href="https://github.com/BurakGundebahar/eee213">Source on GitHub</a>
-  </div>
+<footer class="foot">
+  <div class="big">Burak<br>Gündebahar</div>
+  <div class="small">EEE213 · Scientific Programming<br>İzmir Kâtip Çelebi University<br><a href="https://github.com/BurakGundebahar/eee213">Source on GitHub ↗</a></div>
 </footer>
 </body>
 </html>

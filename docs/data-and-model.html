@@ -3,77 +3,99 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Data and model — EEE213 Project</title>
-<meta name="description" content="EEE213 Scientific Programming project site of Burak Gündebahar.">
+<title>Data and model · BG-213 · EEE213</title>
+<meta name="description" content="EEE213 Scientific Programming project datasheet of Burak Gündebahar.">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="index.html"><span class="mark">213</span>EEE213 Project</a>
-    <nav aria-label="Main"><ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="numerical-problem.html">Numerical problem</a></li>
-<li><a href="data-and-model.html" aria-current="page">Data and model</a></li>
-<li><a href="presentation.html">Presentation</a></li>
-<li><a href="code.html">Code</a></li>
-    </ul></nav>
-  </div>
+<header class="titleblock">
+  <a class="tb-id" href="index.html"><span class="dot"></span>BG-213 / Project datasheet</a>
+  <nav class="tb-nav" aria-label="Main">
+<a href="index.html"><b>00</b>Index</a>
+<a href="numerical-problem.html"><b>01</b>Numerical</a>
+<a href="data-and-model.html" aria-current="page"><b>02</b>Data + model</a>
+<a href="presentation.html"><b>03</b>Presentation</a>
+<a href="code.html"><b>04</b>Code</a>
+  </nav>
+  <div class="tb-rev">Rev. W09 · 2026–27 Fall</div>
 </header>
 <section class="hero">
-  <div class="wrap">
+  <div class="meta"><span>Sheet 02</span><span>Week 09 lab</span><span>Real data</span></div>
+  <h1 class="page">Data<br><span style="-webkit-text-stroke:1.5px #fff;color:transparent">+ model</span></h1>
+  <p class="lead">Predicting the net electrical output of a combined-cycle power plant from four ambient measurements.</p>
+  <div class="sec" aria-hidden="true">02</div>
+</section>
+<div class="marquee" aria-hidden="true"><div class="track"><span>Scientific programming</span><span>◆</span><span>Machine learning</span><span>◆</span><span>Decision tree</span><span>◆</span><span>Newton–Raphson</span><span>◆</span><span>Jacobian</span><span>◆</span><span>Power-plant data</span><span>◆</span><span>MAE in MW</span><span>◆</span><span>EEE213</span><span>◆</span><span>Scientific programming</span><span>◆</span><span>Machine learning</span><span>◆</span><span>Decision tree</span><span>◆</span><span>Newton–Raphson</span><span>◆</span><span>Jacobian</span><span>◆</span><span>Power-plant data</span><span>◆</span><span>MAE in MW</span><span>◆</span><span>EEE213</span><span>◆</span></div></div>
+<main>
+<section class="section">
+  <div class="section-head"><span class="label">§ 2.1 Source</span><h2>Dataset</h2></div>
+  <div class="body">
 
-    <p class="eyebrow">Week 09 lab · real data</p>
-    <h1>Data and model</h1>
-    <p class="lead">Predicting the net electrical output of a combined-cycle power plant from ambient conditions.</p>
-
+    <p>Combined Cycle Power Plant — P. Tüfekci and H. Kaya, UCI Machine Learning Repository, 2014, doi:10.24432/C5002N. Licence CC BY 4.0. 9,568 hourly rows, plant at full load.</p>
+    <div class="spec-wrap"><table class="spec">
+      <thead><tr><th>Col.</th><th>Quantity</th><th>Unit</th><th class="r">Min</th><th class="r">Max</th></tr></thead>
+      <tbody>
+        <tr><td>AT</td><td>Ambient temperature</td><td>°C</td><td class="r">1.81</td><td class="r">37.11</td></tr>
+        <tr><td>V</td><td>Exhaust vacuum</td><td>cm Hg</td><td class="r">25.36</td><td class="r">81.56</td></tr>
+        <tr><td>AP</td><td>Ambient pressure</td><td>mbar</td><td class="r">992.89</td><td class="r">1033.30</td></tr>
+        <tr><td>RH</td><td>Relative humidity</td><td>%</td><td class="r">25.56</td><td class="r">100.16</td></tr>
+        <tr><td>PE</td><td>Net electrical output · target</td><td>MW</td><td class="r">420.26</td><td class="r">495.76</td></tr>
+      </tbody>
+    </table></div>
   </div>
 </section>
-<main>
-  <div class="wrap">
+<section class="section inverse">
+  <div class="section-head"><span class="label">§ 2.2 Quality</span><h2>Checks + split</h2></div>
+  <div class="body">
 
-    <h2>Dataset</h2>
-    <p>Combined Cycle Power Plant, P. Tüfekci and H. Kaya, UCI Machine Learning Repository, 2014, doi:10.24432/C5002N, licence CC BY 4.0. 9,568 hourly rows recorded at full load.</p>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Column</th><th>Quantity</th><th>Unit</th><th class="num">Min</th><th class="num">Max</th></tr></thead>
-      <tbody>
-        <tr><td>AT</td><td>Ambient temperature</td><td>°C</td><td class="num">1.81</td><td class="num">37.11</td></tr>
-        <tr><td>V</td><td>Exhaust vacuum</td><td>cm Hg</td><td class="num">25.36</td><td class="num">81.56</td></tr>
-        <tr><td>AP</td><td>Ambient pressure</td><td>mbar</td><td class="num">992.89</td><td class="num">1033.30</td></tr>
-        <tr><td>RH</td><td>Relative humidity</td><td>%</td><td class="num">25.56</td><td class="num">100.16</td></tr>
-        <tr><td>PE</td><td>Net electrical output (target)</td><td>MW</td><td class="num">420.26</td><td class="num">495.76</td></tr>
-      </tbody>
-    </table></div>
-
-    <h2>Checks</h2>
-    <ul class="clean">
-      <li>Missing values: 0.</li>
-      <li>Exact duplicate rows: 41 (kept; 0.4 % of rows, plausible repeated readings).</li>
-      <li>All ranges are physically possible; RH = 100.16 % is a small sensor overshoot.</li>
+    <ul class="ticks">
+      <li>Missing values: <b>0</b>.</li>
+      <li>Exact duplicate rows: <b>41</b> — kept (0.4 % of rows, plausible repeated readings).</li>
+      <li>All ranges physically possible; RH = 100.16 % is a small sensor overshoot.</li>
+      <li>Training set: first <b>7,654</b> rows. Test set: last <b>1,914</b> rows, used once.</li>
     </ul>
+    <div class="figures">
+      <div class="figure"><div class="v">−0.948</div><div class="k">r(AT, PE)</div></div>
+      <div class="figure"><div class="v">−0.870</div><div class="k">r(V, PE)</div></div>
+      <div class="figure"><div class="v">0.518</div><div class="k">r(AP, PE)</div></div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="section-head"><span class="label">§ 2.3 Results</span><h2>Test MAE</h2></div>
+  <div class="body">
 
-    <h2>Split</h2>
-    <p>Training set: first 7,654 rows. Test set: last 1,914 rows, used once for the final error.</p>
-
-    <h2>Results (test MAE)</h2>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Model</th><th class="num">Test MAE (MW)</th></tr></thead>
+    <div class="plate"><svg viewBox="0 0 640 210" role="img" aria-label="Test MAE: baseline 14.72 MW, line from V 6.49 MW, line from AT 4.33 MW">
+<defs><pattern id="h" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="2"/></pattern></defs>
+<text x="0" y="34" fill="#fff" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="1">BASELINE · TRAINING MEAN</text>
+<rect x="0" y="42" width="412.2" height="22" fill="url(#h)" stroke="#fff" stroke-width="1"/>
+<text x="424.2" y="59" fill="#fff" font-family="Space Grotesk,sans-serif" font-size="20" font-weight="700">14.72 MW</text>
+<text x="0" y="96" fill="#fff" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="1">LINE FROM V</text>
+<rect x="0" y="104" width="181.7" height="22" fill="url(#h)" stroke="#fff" stroke-width="1"/>
+<text x="193.7" y="121" fill="#fff" font-family="Space Grotesk,sans-serif" font-size="20" font-weight="700">6.49 MW</text>
+<text x="0" y="158" fill="#fff" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="1">LINE FROM AT</text>
+<rect x="0" y="166" width="121.2" height="22" fill="#fff" stroke="#fff" stroke-width="1"/>
+<text x="133.2" y="183" fill="#fff" font-family="Space Grotesk,sans-serif" font-size="20" font-weight="700">4.33 MW</text>
+<line x1="0" y1="205" x2="420" y2="205" stroke="#8a8a8a" stroke-dasharray="2 4"/>
+</svg><div class="cap">Fig. 2 · Mean absolute error on the 1,914 test hours · shorter is better</div></div>
+    <div class="spec-wrap"><table class="spec">
+      <thead><tr><th>Model</th><th class="r">Test MAE (MW)</th></tr></thead>
       <tbody>
-        <tr><td>Baseline: always the training mean (454.44 MW)</td><td class="num">14.72</td></tr>
-        <tr class="best"><td>Straight line from AT: PE = −2.1750·AT + 497.13</td><td class="num">4.33</td></tr>
-        <tr><td>Straight line from V: PE = −1.1677·V + 517.78</td><td class="num">6.49</td></tr>
-        <tr><td>Decision tree (Week 10)</td><td class="num">—</td></tr>
+        <tr><td>Baseline — always the training mean, 454.44 MW</td><td class="r">14.72</td></tr>
+        <tr class="win"><td>Line from AT — PE = −2.1750·AT + 497.13</td><td class="r">4.33</td></tr>
+        <tr><td>Line from V — PE = −1.1677·V + 517.78</td><td class="r">6.49</td></tr>
+        <tr><td>Decision tree — Week 10</td><td class="r">pending</td></tr>
       </tbody>
     </table></div>
-    <p class="note">AT has the strongest linear relationship with PE (r = −0.948), so its line leaves the least error. The decision-tree result will be added for Week 10.</p>
-
+    <p class="muted" style="margin-top:16px">AT has the strongest linear relationship with PE, so its straight line leaves the least error.</p>
   </div>
+</section>
 </main>
-<footer class="site-footer">
-  <div class="wrap">
-    <span>Burak Gündebahar · EEE213 Scientific Programming · 2026–27 Fall</span>
-    <a href="https://github.com/BurakGundebahar/eee213">Source on GitHub</a>
-  </div>
+<footer class="foot">
+  <div class="big">Burak<br>Gündebahar</div>
+  <div class="small">EEE213 · Scientific Programming<br>İzmir Kâtip Çelebi University<br><a href="https://github.com/BurakGundebahar/eee213">Source on GitHub ↗</a></div>
 </footer>
 </body>
 </html>

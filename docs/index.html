@@ -3,77 +3,61 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EEE213 Project — Burak Gündebahar</title>
-<meta name="description" content="EEE213 Scientific Programming project site of Burak Gündebahar.">
+<title>BG-213 · EEE213 Project · Burak Gündebahar</title>
+<meta name="description" content="EEE213 Scientific Programming project datasheet of Burak Gündebahar.">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="index.html"><span class="mark">213</span>EEE213 Project</a>
-    <nav aria-label="Main"><ul>
-<li><a href="index.html" aria-current="page">Home</a></li>
-<li><a href="numerical-problem.html">Numerical problem</a></li>
-<li><a href="data-and-model.html">Data and model</a></li>
-<li><a href="presentation.html">Presentation</a></li>
-<li><a href="code.html">Code</a></li>
-    </ul></nav>
-  </div>
+<header class="titleblock">
+  <a class="tb-id" href="index.html"><span class="dot"></span>BG-213 / Project datasheet</a>
+  <nav class="tb-nav" aria-label="Main">
+<a href="index.html" aria-current="page"><b>00</b>Index</a>
+<a href="numerical-problem.html"><b>01</b>Numerical</a>
+<a href="data-and-model.html"><b>02</b>Data + model</a>
+<a href="presentation.html"><b>03</b>Presentation</a>
+<a href="code.html"><b>04</b>Code</a>
+  </nav>
+  <div class="tb-rev">Rev. W09 · 2026–27 Fall</div>
 </header>
 <section class="hero">
-  <div class="wrap">
+  <div class="stamp" aria-hidden="true"><svg viewBox="0 0 150 150">
+  <defs><path id="c" d="M75,75 m-58,0 a58,58 0 1,1 116,0 a58,58 0 1,1 -116,0"/></defs>
+  <circle cx="75" cy="75" r="72" fill="none" stroke="#fff" stroke-width="1"/>
+  <circle cx="75" cy="75" r="44" fill="none" stroke="#fff" stroke-width="1"/>
+  <text><textPath href="#c">Engineering · Data · Code · Engineering · Data · Code ·</textPath></text>
+  <text x="75" y="83" text-anchor="middle" style="font-size:22px;letter-spacing:0;font-weight:700">213</text>
+</svg></div>
+  <div class="meta"><span>EEE213</span><span>Scientific programming</span><span>2026–27 Fall</span><span>Student 250403046</span></div>
+  <h1 class="mega">Burak<br><span class="outline">Gündebahar</span></h1>
+  <p class="lead">A project datasheet: one numerical problem, one machine-learning method on real power-plant data, one presentation, and the code behind every number.</p>
+</section>
+<div class="marquee" aria-hidden="true"><div class="track"><span>Scientific programming</span><span>◆</span><span>Machine learning</span><span>◆</span><span>Decision tree</span><span>◆</span><span>Newton–Raphson</span><span>◆</span><span>Jacobian</span><span>◆</span><span>Power-plant data</span><span>◆</span><span>MAE in MW</span><span>◆</span><span>EEE213</span><span>◆</span><span>Scientific programming</span><span>◆</span><span>Machine learning</span><span>◆</span><span>Decision tree</span><span>◆</span><span>Newton–Raphson</span><span>◆</span><span>Jacobian</span><span>◆</span><span>Power-plant data</span><span>◆</span><span>MAE in MW</span><span>◆</span><span>EEE213</span><span>◆</span></div></div>
+<main>
 
-    <p class="eyebrow">EEE213 · Scientific Programming · 2026–27 Fall</p>
-    <h1>Burak Gündebahar</h1>
-    <p class="lead">Project site for EEE213. It collects my numerical problem, my machine-learning method on real power-plant data, my presentation and the code behind every number.</p>
-
+<section class="section">
+  <div class="section-head"><span class="label">§ Contents</span><h2>Four pages</h2></div>
+  <ul class="index">
+    <li><a href="numerical-problem.html"><span class="n">01</span><span class="t">Numerical problem<span class="d">Non-linear resistor network · multivariable Newton</span></span><span class="arrow">→</span></a></li>
+    <li><a href="data-and-model.html"><span class="n">02</span><span class="t">Data + model<span class="d">Combined-cycle power plant · baseline · test error</span></span><span class="arrow">→</span></a></li>
+    <li><a href="presentation.html"><span class="n">03</span><span class="t">Presentation<span class="d">Week 10 · decision tree for regression</span></span><span class="arrow">→</span></a></li>
+    <li><a href="code.html"><span class="n">04</span><span class="t">Code<span class="d">Repository · how to run · sources · AI use</span></span><span class="arrow">→</span></a></li>
+  </ul>
+</section>
+<section class="section inverse">
+  <div class="section-head"><span class="label">§ Week 09 readout</span><h2>Test error, MW</h2></div>
+  <div class="figures">
+    <div class="figure"><div class="v">14.72<small>MW</small></div><div class="k">Baseline · training mean</div></div>
+    <div class="figure"><div class="v">6.49<small>MW</small></div><div class="k">Straight line from V</div></div>
+    <div class="figure hl"><div class="v">4.33<small>MW</small></div><div class="k">Straight line from AT</div></div>
   </div>
 </section>
-<main>
-  <div class="wrap">
 
-    <h2>Project pages</h2>
-    <div class="grid">
-      <a class="card" href="numerical-problem.html">
-        <span class="num">01</span>
-        <h3>Numerical problem</h3>
-        <p>Non-linear resistor network solved with multivariable Newton, with an independent check.</p>
-        <span class="go">Open →</span>
-      </a>
-      <a class="card" href="data-and-model.html">
-        <span class="num">02</span>
-        <h3>Data and model</h3>
-        <p>Combined-cycle power-plant data: checks, split, baseline and test error.</p>
-        <span class="go">Open →</span>
-      </a>
-      <a class="card" href="presentation.html">
-        <span class="num">03</span>
-        <h3>Presentation</h3>
-        <p>Week 10 method presentation: decision tree for regression.</p>
-        <span class="go">Open →</span>
-      </a>
-      <a class="card" href="code.html">
-        <span class="num">04</span>
-        <h3>Code</h3>
-        <p>Repository, how to run it, sources and AI-use statement.</p>
-        <span class="go">Open →</span>
-      </a>
-    </div>
-
-    <h2>Week 09 at a glance</h2>
-    <div class="facts">
-      <div class="fact"><div class="value">14.72 MW</div><div class="label">Baseline test MAE (training mean)</div></div>
-      <div class="fact"><div class="value">4.33 MW</div><div class="label">Test MAE, straight line from AT</div></div>
-      <div class="fact"><div class="value">6.49 MW</div><div class="label">Test MAE, straight line from V</div></div>
-    </div>
-
-  </div>
 </main>
-<footer class="site-footer">
-  <div class="wrap">
-    <span>Burak Gündebahar · EEE213 Scientific Programming · 2026–27 Fall</span>
-    <a href="https://github.com/BurakGundebahar/eee213">Source on GitHub</a>
-  </div>
+<footer class="foot">
+  <div class="big">Burak<br>Gündebahar</div>
+  <div class="small">EEE213 · Scientific Programming<br>İzmir Kâtip Çelebi University<br><a href="https://github.com/BurakGundebahar/eee213">Source on GitHub ↗</a></div>
 </footer>
 </body>
 </html>
